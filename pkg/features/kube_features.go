@@ -139,6 +139,11 @@ const (
 	//
 	// Enable additional AdmissionCheck validation rules that will appear in status conditions.
 	AdmissionCheckValidationRules featuregate.Feature = "AdmissionCheckValidationRules"
+
+	// owner: @vicenteferrara
+	// kep: https://github.com/kubernetes-sigs/kueue/tree/3347afb5a8681f4fd2a5f3b1a5be8c5c0ebac488/keps/77-dynamically-sized-jobs
+	// alpha: v0.8
+	ResizableJobs featuregate.Feature = "ResizableJobs"
 )
 
 func init() {
@@ -152,6 +157,7 @@ func init() {
 // Entries are separated from each other with blank lines to avoid sweeping gofmt changes
 // when adding or removing one entry.
 var defaultFeatureGates = map[featuregate.Feature]featuregate.FeatureSpec{
+<<<<<<< HEAD
 	PartialAdmission:                    {Default: true, PreRelease: featuregate.Beta},
 	QueueVisibility:                     {Default: false, PreRelease: featuregate.Deprecated},
 	FlavorFungibility:                   {Default: true, PreRelease: featuregate.Beta},
@@ -167,6 +173,18 @@ var defaultFeatureGates = map[featuregate.Feature]featuregate.FeatureSpec{
 	WorkloadResourceRequestsSummary:     {Default: false, PreRelease: featuregate.Alpha},
 	ExposeFlavorsInLocalQueue:           {Default: true, PreRelease: featuregate.Beta},
 	AdmissionCheckValidationRules:       {Default: false, PreRelease: featuregate.Deprecated},
+=======
+	PartialAdmission:                {Default: true, PreRelease: featuregate.Beta},
+	QueueVisibility:                 {Default: false, PreRelease: featuregate.Alpha},
+	FlavorFungibility:               {Default: true, PreRelease: featuregate.Beta},
+	ProvisioningACC:                 {Default: true, PreRelease: featuregate.Beta},
+	VisibilityOnDemand:              {Default: false, PreRelease: featuregate.Alpha},
+	PrioritySortingWithinCohort:     {Default: true, PreRelease: featuregate.Beta},
+	MultiKueue:                      {Default: false, PreRelease: featuregate.Alpha},
+	LendingLimit:                    {Default: false, PreRelease: featuregate.Alpha},
+	MultiKueueBatchJobWithManagedBy: {Default: false, PreRelease: featuregate.Alpha},
+	ResizableJobs:                   {Default: false, PreRelease: featuregate.Alpha},
+>>>>>>> 64edc866 (scale down)
 }
 
 func SetFeatureGateDuringTest(tb testing.TB, f featuregate.Feature, value bool) {

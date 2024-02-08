@@ -30,7 +30,9 @@ import (
 
 	kueue "sigs.k8s.io/kueue/apis/kueue/v1beta1"
 	"sigs.k8s.io/kueue/pkg/controller/jobframework"
+	"sigs.k8s.io/kueue/pkg/features"
 	"sigs.k8s.io/kueue/pkg/podset"
+	"sigs.k8s.io/kueue/pkg/util/equality"
 )
 
 var (
@@ -96,6 +98,14 @@ func (j *RayCluster) GVK() schema.GroupVersionKind {
 
 func (j *RayCluster) PodLabelSelector() string {
 	return fmt.Sprintf("%s=%s", rayutils.RayClusterLabelKey, j.Name)
+}
+
+func (j *RayCluster) IsResizable(wl *kueue.Workload) bool {
+	if !features.Enabled(features.ResizableJobs) {
+		return false
+	}
+	pods := j.PodSets()
+	return equality.IsResized(wl.Spec.PodSets[1:], pods[1:])
 }
 
 func (j *RayCluster) PodSets() []kueue.PodSet {
