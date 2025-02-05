@@ -39,6 +39,10 @@ func (c *FakeKueueV1beta1) LocalQueues(namespace string) v1beta1.LocalQueueInter
 	return &FakeLocalQueues{c, namespace}
 }
 
+func (c *FakeKueueV1beta1) MinWaitConfigs() v1beta1.MinWaitConfigInterface {
+	return &FakeMinWaitConfigs{c}
+}
+
 func (c *FakeKueueV1beta1) MultiKueueClusters() v1beta1.MultiKueueClusterInterface {
 	return &FakeMultiKueueClusters{c}
 }

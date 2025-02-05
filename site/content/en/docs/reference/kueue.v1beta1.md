@@ -13,6 +13,7 @@ description: Generated API reference documentation for kueue.x-k8s.io/v1beta1.
 - [AdmissionCheck](#kueue-x-k8s-io-v1beta1-AdmissionCheck)
 - [ClusterQueue](#kueue-x-k8s-io-v1beta1-ClusterQueue)
 - [LocalQueue](#kueue-x-k8s-io-v1beta1-LocalQueue)
+- [MinWaitConfig](#kueue-x-k8s-io-v1beta1-MinWaitConfig)
 - [MultiKueueCluster](#kueue-x-k8s-io-v1beta1-MultiKueueCluster)
 - [MultiKueueConfig](#kueue-x-k8s-io-v1beta1-MultiKueueConfig)
 - [ProvisioningRequestConfig](#kueue-x-k8s-io-v1beta1-ProvisioningRequestConfig)
@@ -113,6 +114,33 @@ description: Generated API reference documentation for kueue.x-k8s.io/v1beta1.
 </tr>
 <tr><td><code>status</code> <B>[Required]</B><br/>
 <a href="#kueue-x-k8s-io-v1beta1-LocalQueueStatus"><code>LocalQueueStatus</code></a>
+</td>
+<td>
+   <span class="text-muted">No description provided.</span></td>
+</tr>
+</tbody>
+</table>
+
+## `MinWaitConfig`     {#kueue-x-k8s-io-v1beta1-MinWaitConfig}
+    
+
+**Appears in:**
+
+
+
+<p>MinWaitConfig is the Schema for the provisioningrequestconfig API</p>
+
+
+<table class="table">
+<thead><tr><th width="30%">Field</th><th>Description</th></tr></thead>
+<tbody>
+    
+<tr><td><code>apiVersion</code><br/>string</td><td><code>kueue.x-k8s.io/v1beta1</code></td></tr>
+<tr><td><code>kind</code><br/>string</td><td><code>MinWaitConfig</code></td></tr>
+    
+  
+<tr><td><code>spec</code> <B>[Required]</B><br/>
+<a href="#kueue-x-k8s-io-v1beta1-MinWaitConfigSpec"><code>MinWaitConfigSpec</code></a>
 </td>
 <td>
    <span class="text-muted">No description provided.</span></td>
@@ -1456,6 +1484,32 @@ workloads assigned to this LocalQueue.</p>
 
 
 
+
+## `MinWaitConfigSpec`     {#kueue-x-k8s-io-v1beta1-MinWaitConfigSpec}
+    
+
+**Appears in:**
+
+- [MinWaitConfig](#kueue-x-k8s-io-v1beta1-MinWaitConfig)
+
+
+<p>MinWaitConfigSpec defines the desired state of ProvisioningRequestConfig</p>
+
+
+<table class="table">
+<thead><tr><th width="30%">Field</th><th>Description</th></tr></thead>
+<tbody>
+    
+  
+<tr><td><code>parameters</code> <B>[Required]</B><br/>
+<code>int</code>
+</td>
+<td>
+   <p>Time in seconds before the admission check will pass</p>
+</td>
+</tr>
+</tbody>
+</table>
 
 ## `MultiKueueClusterSpec`     {#kueue-x-k8s-io-v1beta1-MultiKueueClusterSpec}
     

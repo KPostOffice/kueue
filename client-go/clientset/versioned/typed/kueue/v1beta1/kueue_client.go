@@ -30,6 +30,7 @@ type KueueV1beta1Interface interface {
 	AdmissionChecksGetter
 	ClusterQueuesGetter
 	LocalQueuesGetter
+	MinWaitConfigsGetter
 	MultiKueueClustersGetter
 	MultiKueueConfigsGetter
 	ProvisioningRequestConfigsGetter
@@ -53,6 +54,10 @@ func (c *KueueV1beta1Client) ClusterQueues() ClusterQueueInterface {
 
 func (c *KueueV1beta1Client) LocalQueues(namespace string) LocalQueueInterface {
 	return newLocalQueues(c, namespace)
+}
+
+func (c *KueueV1beta1Client) MinWaitConfigs() MinWaitConfigInterface {
+	return newMinWaitConfigs(c)
 }
 
 func (c *KueueV1beta1Client) MultiKueueClusters() MultiKueueClusterInterface {

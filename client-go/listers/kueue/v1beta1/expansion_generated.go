@@ -33,6 +33,10 @@ type LocalQueueListerExpansion interface{}
 // LocalQueueNamespaceLister.
 type LocalQueueNamespaceListerExpansion interface{}
 
+// MinWaitConfigListerExpansion allows custom methods to be added to
+// MinWaitConfigLister.
+type MinWaitConfigListerExpansion interface{}
+
 // MultiKueueClusterListerExpansion allows custom methods to be added to
 // MultiKueueClusterLister.
 type MultiKueueClusterListerExpansion interface{}

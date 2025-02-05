@@ -97,6 +97,10 @@ func ForKind(kind schema.GroupVersionKind) interface{} {
 		return &kueuev1beta1.LocalQueueSpecApplyConfiguration{}
 	case v1beta1.SchemeGroupVersion.WithKind("LocalQueueStatus"):
 		return &kueuev1beta1.LocalQueueStatusApplyConfiguration{}
+	case v1beta1.SchemeGroupVersion.WithKind("MinWaitConfig"):
+		return &kueuev1beta1.MinWaitConfigApplyConfiguration{}
+	case v1beta1.SchemeGroupVersion.WithKind("MinWaitConfigSpec"):
+		return &kueuev1beta1.MinWaitConfigSpecApplyConfiguration{}
 	case v1beta1.SchemeGroupVersion.WithKind("MultiKueueCluster"):
 		return &kueuev1beta1.MultiKueueClusterApplyConfiguration{}
 	case v1beta1.SchemeGroupVersion.WithKind("MultiKueueClusterSpec"):

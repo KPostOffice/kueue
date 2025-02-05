@@ -29,6 +29,8 @@ type Interface interface {
 	ClusterQueues() ClusterQueueInformer
 	// LocalQueues returns a LocalQueueInformer.
 	LocalQueues() LocalQueueInformer
+	// MinWaitConfigs returns a MinWaitConfigInformer.
+	MinWaitConfigs() MinWaitConfigInformer
 	// MultiKueueClusters returns a MultiKueueClusterInformer.
 	MultiKueueClusters() MultiKueueClusterInformer
 	// MultiKueueConfigs returns a MultiKueueConfigInformer.
@@ -67,6 +69,11 @@ func (v *version) ClusterQueues() ClusterQueueInformer {
 // LocalQueues returns a LocalQueueInformer.
 func (v *version) LocalQueues() LocalQueueInformer {
 	return &localQueueInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
+}
+
+// MinWaitConfigs returns a MinWaitConfigInformer.
+func (v *version) MinWaitConfigs() MinWaitConfigInformer {
+	return &minWaitConfigInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
 }
 
 // MultiKueueClusters returns a MultiKueueClusterInformer.
