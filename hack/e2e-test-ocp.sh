@@ -119,7 +119,7 @@ function deploy_cert_manager {
 trap collect_logs EXIT
 
 deploy_cert_manager
-deploy_kueue
+# deploy_kueue
 
 # Label two worker nodes for e2e tests (similar to the Kind setup).
 label_worker_nodes

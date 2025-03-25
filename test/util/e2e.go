@@ -187,7 +187,7 @@ func waitForOperatorAvailability(ctx context.Context, k8sClient client.Client, k
 }
 
 func WaitForKueueAvailability(ctx context.Context, k8sClient client.Client) {
-	kcmKey := types.NamespacedName{Namespace: "kueue-system", Name: "kueue-controller-manager"}
+	kcmKey := types.NamespacedName{Namespace: "openshift-kueue-operator", Name: "kueue"}
 	waitForOperatorAvailability(ctx, k8sClient, kcmKey)
 }
 
