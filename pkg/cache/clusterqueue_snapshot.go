@@ -50,7 +50,7 @@ type ClusterQueueSnapshot struct {
 	AllocatableResourceGeneration int64
 
 	ResourceNode ResourceNode
-	hierarchy.ClusterQueue[*CohortSnapshot]
+	hierarchy.Cohort[*ClusterQueueSnapshot, *CohortSnapshot]
 
 	TASFlavors map[kueue.ResourceFlavorReference]*TASFlavorSnapshot
 	tasOnly    bool

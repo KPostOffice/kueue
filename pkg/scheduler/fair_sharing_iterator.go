@@ -209,11 +209,9 @@ func (ec *entryComparer) computeDRS(rootCohort *cache.CohortSnapshot, cqToEntry 
 
 		// calculate DRS, with workload, for all Cohorts on
 		// path to root.
-		cohort := cq.Parent()
-		for cohort.HasParent() {
+		for cohort := range cq.PathToRoot() {
 			dominantResourceShare := cohort.DominantResourceShare()
 			ec.drsValues[drsKey{parentCohort: cohort.Parent().GetName(), workloadKey: workload.Key(entry.Obj)}] = dominantResourceShare
-			cohort = cohort.Parent()
 		}
 
 		cq.RemoveUsage(entry.assignmentUsage())
