@@ -99,13 +99,12 @@ func (c *Cohort[CQ, C]) PathToRoot() iter.Seq[C] {
 	// Yields an iterator that traverses the nodes ancestors to the root node
 	// does not yield the passed node
 	return func(yield func(C) bool) {
-		var zero C
-		cohort := c.parent
-		for {
-			if cohort == zero || !yield(cohort) {
+		ancestor := c.Parent()
+		for yield(ancestor) {
+			if !(ancestor.HasParent()) {
 				return
 			}
-			cohort = c.parent
+			ancestor = ancestor.Parent()
 		}
 	}
 }
